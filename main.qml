@@ -29,16 +29,12 @@ Window {
             x: Math.random() * (gameField.width - width)
             y: Math.random() * 100
             text: "*"
+            property int verticalShift : Math.random() * 4 + 3
             onClicked: {
                 destroy()
             }
             function moveDown() {
-                const verticalShift = 4
-                const horizontalShift = 5
                 y += verticalShift
-                x += x > horizontalShift && x < gameField.width - width - horizontalShift
-                        ?  Math.random() * (-horizontalShift * 2) + horizontalShift
-                        : 0
                 if (y > gameField.height - height) {
                     destroy()
                     gameField.setLooseCase()
